@@ -17,36 +17,71 @@
 
   <main>
     <h1>Contact Us</h1>
-    <form id="contact-form" novalidate>
+    <form id="contactForm" novalidate>
       <div>
-        <label for="name">KINUEL</label>
-        <input id="name" type="text" data-testid="test-contact-name" aria-describedby="test-contact-error-name" />
-        <span id="test-contact-error-name" data-testid="test-contact-error-name" class="error"></span>
+        <label for="name">Full Name</label>
+        <input type="text" id="name" data-testid="test-contact-name" aria-describedby="error-name" required />
+        <span id="error-name" class="error" data-testid="test-contact-error-name"></span>
       </div>
 
       <div>
         <label for="email">Email</label>
-        <input id="email" type="email" data-testid="test-contact-email" aria-describedby="test-contact-error-email" />
-        <span id="test-contact-error-email" data-testid="test-contact-error-email" class="error"></span>
+        <input type="email" id="email" data-testid="test-contact-email" aria-describedby="error-email" required />
+        <span id="error-email" class="error" data-testid="test-contact-error-email"></span>
       </div>
 
       <div>
         <label for="subject">Subject</label>
-        <input id="subject" type="text" data-testid="test-contact-subject" aria-describedby="test-contact-error-subject" />
-        <span id="test-contact-error-subject" data-testid="test-contact-error-subject" class="error"></span>
+        <input type="text" id="subject" data-testid="test-contact-subject" aria-describedby="error-subject" required />
+        <span id="error-subject" class="error" data-testid="test-contact-error-subject"></span>
       </div>
 
       <div>
         <label for="message">Message</label>
-        <textarea id="message" rows="5" data-testid="test-contact-message" aria-describedby="test-contact-error-message"></textarea>
-        <span id="test-contact-error-message" data-testid="test-contact-error-message" class="error"></span>
+        <textarea id="message" data-testid="test-contact-message" aria-describedby="error-message" required></textarea>
+        <span id="error-message" class="error" data-testid="test-contact-error-message"></span>
       </div>
 
       <button type="submit" data-testid="test-contact-submit">Submit</button>
-      <p data-testid="test-contact-success" class="success"></p>
+      <p id="successMessage" class="success" data-testid="test-contact-success" style="display:none;">
+        ✅ Message sent successfully!
+      </p>
     </form>
   </main>
 
-  <script src="js/formValidation.js"></script>
+  <script>
+    const form = document.getElementById('contactForm');
+    const successMessage = document.getElementById('successMessage');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      let valid = true;
+      successMessage.style.display = 'none';
+
+      const fields = ['name', 'email', 'subject', 'message'];
+      fields.forEach((field) => {
+        const input = document.getElementById(field);
+        const error = document.getElementById(error-${field});
+        error.textContent = '';
+
+        if (!input.value.trim()) {
+          error.textContent = 'This field is required';
+          valid = false;
+        } else if (field === 'email' && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(input.value)) {
+          error.textContent = 'Enter a valid email';
+          valid = false;
+        } else if (field === 'message' && input.value.trim().length < 10) {
+          error.textContent = 'Message must be at least 10 characters';
+          valid = false;
+        }
+      });
+
+      if (valid) {
+        form.reset();
+        successMessage.style.display = 'block';
+      }
+    });
+  </script>
 </body>
 </html>
