@@ -1,26 +1,44 @@
-# 🚀 Frontend Wizards – Stage 0 Task: Profile Card
+# Frontend Wizards - Stage 1 Task 🚀
 
-This is my submission for the *Frontend Wizards Stage 0 task, where I built a testable and responsive **Profile Card* using semantic HTML, modern CSS, and vanilla JavaScript.
-
-## ✨ Features
-- Accessible and semantic HTML structure  
-- Responsive design (works on mobile, tablet, and desktop)  
-- Live current time in milliseconds using Date.now()  
-- Social media links open safely in new tabs  
-- Includes hobbies and dislikes sections  
-- Fully testable using data-testid attributes
-
-## 🛠 Built With
-- *HTML5*
-- *CSS3 (Flexbox / Grid)*
-- *Vanilla JavaScript*
-
-## 🔗 Live Demo
-👉 [View Live on GitHub Pages](https://kinuel.github.io/frontend-wizards-profile-card/)
-
-## 📁 Repository
-👉 [GitHub Repo](https://github.com/kinuel/frontend-wizards-profile-card)
+This project was built for *Frontend Wizards Stage 1* challenge.  
+It continues from the Stage 0 Profile Card task and introduces *multi-page functionality* with semantic HTML, accessibility, and form validation.
 
 ---
 
-Made with ❤ by *KinueL.*
+# Pages Included
+
+# Home Page (index.html)
+- Profile card with my name, avatar, hobbies, and social links.
+- Responsive and accessible design.
+
+# About Me Page (about.html)
+- Reflects my journey, goals, and personal insights in the program.
+- Structured with semantic HTML (main, section, h2).
+
+# Contact Us Page (contact.html)
+- Contains a contact form with validation:
+  - *Full Name, **Email, **Subject, **Message*
+  - All fields required
+  - Email must be valid
+  - Message must be at least 10 characters
+- Shows success message upon valid submission.
+
+---
+
+# Tech Stack
+- HTML5  
+- CSS3  
+- JavaScript (for form validation)
+
+---
+
+# Live Demo
+🔗 **[View Live Site Here](https://kinuel.github.io/frontend-wizards-profile-card/)**
+
+---
+
+# Author
+Kinuel
+*Kinuel*  
+Frontend Developer in training 🚀  
+[GitHub Profile](https://github.com/kinuel)
